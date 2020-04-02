@@ -1,0 +1,75 @@
+# Incomplete app!
+MENU_PROMPT = "\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by title, or 'q' to quit: "
+choice=''
+# You may want to create a function for this code
+def add():
+    title = input("Enter the movie title: ")
+    director = input("Enter the movie director: ")
+    year = input("Enter the movie release year: ")
+    movies.append({
+        'title': title,
+        'director': director,
+        'year': year
+    })
+    
+def list_movies():
+    print(movies)
+   
+
+def find():
+    print("Sort By:")
+    Sort=input("Enter t for title,d for director,y for year:")
+    if Sort=='t':
+      Title=input("Enter the title of movie:")
+      for name in movies:
+          if name["title"].lower()==Title.lower():
+            print("Exists")
+            print(name)
+            break
+    elif Sort=='d':
+      dir=input("Enter the director name:")
+      for name in movies:
+          if name["director"].lower()==dir.lower():
+            print("Exists")
+            print(name)
+            break
+    elif Sort=='y':
+      Year=input("Enter the year:")
+      for name in movies:
+          if name["year"]==Year:
+            print("Exists")
+            print (name)
+            break
+    else:
+      print("Wrong choice! Try again.")
+      find()                             
+    
+    
+
+
+# Create other functions for:
+#   - listing movies
+#   - finding movies
+
+
+# And another function here for the user menu
+
+
+def Menu():
+    choice=input(MENU_PROMPT)
+    while choice!='q': 
+        if choice=='a':
+          add()
+        elif choice=='l':
+          list_movies()
+        elif choice=='f':
+          find()
+        else:
+          print("Wrong choice!Try again") 
+        choice=input(MENU_PROMPT)      
+movies = []
+Menu()    
+
+         
+
+
